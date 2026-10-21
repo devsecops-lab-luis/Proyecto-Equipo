@@ -1,0 +1,4 @@
+
+usuarios = {
+    "admin": "1234",
+}
