@@ -10,8 +10,8 @@ def login():
     conn = sqlite3.connect("usuarios.db")
     cursor = conn.cursor()
     
-    query = "SELECT * FROM users WHERE user = ? AND pass = ?"
-    cursor.execute(query, (usuario, contrasena))
+    query = "SELECT * FROM users WHERE user = '" + usuario + "' AND pass = '" + contrasena + "'"
+    cursor.execute(query)
     return str(cursor.fetchone() is not None)
 
 if __name__ == "__main__":
