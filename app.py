@@ -11,10 +11,10 @@ def login():
     cursor = conn.cursor()
 
   
-    query = "SELECT * FROM users WHERE user = ? AND pass = ?"
+    query = "SELECT * FROM users WHERE user = '" + usuario + "' AND pass = '" + contrasena + "'"
 
     
-    cursor.execute(query, (usuario, contrasena))
+    cursor.execute(query)
     return str(cursor.fetchone() is not None)
 
 if __name__ == "__main__":
