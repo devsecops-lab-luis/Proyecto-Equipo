@@ -12,8 +12,6 @@ def login():
 
   
     query = "SELECT * FROM users WHERE user = ? AND pass = ?"
-
-    
     cursor.execute(query, (usuario, contrasena))
     return str(cursor.fetchone() is not None)
 
