@@ -9,8 +9,11 @@ def login():
     contrasena = request.args.get("contrasena")
     conn = sqlite3.connect("usuarios.db")
     cursor = conn.cursor()
-    
+
+  
     query = "SELECT * FROM users WHERE user = '" + usuario + "' AND pass = '" + contrasena + "'"
+
+    
     cursor.execute(query)
     return str(cursor.fetchone() is not None)
 
