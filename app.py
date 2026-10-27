@@ -1,6 +1,8 @@
 from flask import Flask, request
 import sqlite3
 
+from httpx2 import query
+
 app = Flask(__name__)
 
 @app.route("/login")
@@ -12,9 +14,8 @@ def login():
 
   
     query = "SELECT * FROM users WHERE user = ? AND pass = ?"
-
-    
     cursor.execute(query, (usuario, contrasena))
+  
     return str(cursor.fetchone() is not None)
 
 if __name__ == "__main__":
